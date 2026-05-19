@@ -99,7 +99,7 @@ export default function Intersecciones({ onMount }) {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
               {[
                 { icon: <Camera size={13} />, label: 'Cámaras', value: inter.cameras },
-                { icon: <Radio size={13} />, label: 'Sensores', value: inter.sensors },
+                { icon: <TrafficLight size={13} /> /* Fallback to generic icon if needed */, label: 'Semáforos', value: 3 },
                 { icon: <Thermometer size={13} />, label: 'Temp.', value: inter.temp },
                 { icon: <MapPin size={13} />, label: 'Vehículos', value: inter.vehicles },
               ].map((s, j) => (
