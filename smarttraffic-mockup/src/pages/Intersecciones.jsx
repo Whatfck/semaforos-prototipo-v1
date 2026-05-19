@@ -5,9 +5,9 @@ import L from 'leaflet'
 import TrafficLight from '../components/TrafficLight'
 
 const intersectionsData = [
-  { id: 1, name: 'Calle 16 x Carrera 27', coords: [1.216124, -77.281056], state: 'red', vehicles: 42, sensors: 3, cameras: 1, online: true, temp: '18°C', wait: '45s', density: 87, ref: 'Parque Ambiental Rumipamba' },
-  { id: 2, name: 'Calle 17 x Carrera 27', coords: [1.215345, -77.280432], state: 'green', vehicles: 18, sensors: 3, cameras: 1, online: true, temp: '17°C', wait: '12s', density: 38, ref: 'Gimnasio Muscle Mania' },
-  { id: 3, name: 'Calle 18 x Carrera 27', coords: [1.214512, -77.279890], state: 'yellow', vehicles: 28, sensors: 3, cameras: 1, online: true, temp: '19°C', wait: '25s', density: 65, ref: 'Catedral Sagrado Corazón' },
+  { id: 1, name: 'Calle 16 x Carrera 27', coords: [1.2158758599848443, -77.2813528581243], state: 'red', vehicles: 42, sensors: 3, cameras: 1, online: true, temp: '18°C', wait: '45s', density: 87, ref: 'Parque Ambiental Rumipamba' },
+  { id: 2, name: 'Calle 17 x Carrera 27', coords: [1.216289002968723, -77.28051245796952], state: 'green', vehicles: 18, sensors: 3, cameras: 1, online: true, temp: '17°C', wait: '12s', density: 38, ref: 'Gimnasio Muscle Mania' },
+  { id: 3, name: 'Calle 18 x Carrera 27', coords: [1.2166510835690707, -77.2796674097402], state: 'yellow', vehicles: 28, sensors: 3, cameras: 1, online: true, temp: '19°C', wait: '25s', density: 65, ref: 'Catedral Sagrado Corazón' },
 ]
 
 const getMarkerIcon = (density) => {
@@ -54,7 +54,7 @@ export default function Intersecciones({ onMount }) {
           </div>
         </div>
         <div className="map-container" style={{ height: 400, borderRadius: 'var(--radius)', overflow: 'hidden', border: '1px solid var(--border-glass)' }}>
-          <MapContainer center={[1.215345, -77.280432]} zoom={17} style={{ height: '100%', width: '100%' }}>
+          <MapContainer center={[1.216289002968723, -77.28051245796952]} zoom={17} style={{ height: '100%', width: '100%' }}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
@@ -111,7 +111,7 @@ export default function Intersecciones({ onMount }) {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
               {[
                 { icon: <Camera size={13} />, label: 'Cámaras', value: inter.cameras },
-                { icon: <TrafficLight size={13} /> /* Fallback to generic icon if needed */, label: 'Semáforos', value: 3 },
+                { icon: <Radio size={13} />, label: 'Semáforos', value: 3 },
                 { icon: <Thermometer size={13} />, label: 'Temp.', value: inter.temp },
                 { icon: <MapPin size={13} />, label: 'Vehículos', value: inter.vehicles },
               ].map((s, j) => (
