@@ -5,12 +5,9 @@ import L from 'leaflet'
 import TrafficLight from '../components/TrafficLight'
 
 const intersectionsData = [
-  { id: 1, name: 'Av. Panamericana x Calle 18', coords: [1.2136, -77.2811], state: 'red', vehicles: 42, sensors: 3, cameras: 2, online: true, temp: '18°C', wait: '45s', density: 87 },
-  { id: 2, name: 'Cra 27 x Calle 22', coords: [1.2148, -77.2795], state: 'green', vehicles: 18, sensors: 2, cameras: 2, online: true, temp: '17°C', wait: '12s', density: 38 },
-  { id: 3, name: 'Cra 33 x Av. Colombia', coords: [1.2102, -77.2834], state: 'yellow', vehicles: 28, sensors: 3, cameras: 1, online: true, temp: '19°C', wait: '25s', density: 65 },
-  { id: 4, name: 'Calle 19 x Cra 24', coords: [1.2155, -77.2802], state: 'green', vehicles: 12, sensors: 2, cameras: 2, online: true, temp: '17°C', wait: '8s', density: 22 },
-  { id: 5, name: 'Av. Boyacá x Calle 16', coords: [1.2088, -77.2775], state: 'red', vehicles: 35, sensors: 3, cameras: 2, online: false, temp: '—', wait: '52s', density: 78 },
-  { id: 6, name: 'Cra 25 x Calle 20', coords: [1.2131, -77.2819], state: 'green', vehicles: 9, sensors: 2, cameras: 1, online: true, temp: '18°C', wait: '10s', density: 15 },
+  { id: 1, name: 'Calle 16 x Carrera 27', coords: [1.216124, -77.281056], state: 'red', vehicles: 42, sensors: 3, cameras: 1, online: true, temp: '18°C', wait: '45s', density: 87, ref: 'Parque Ambiental Rumipamba' },
+  { id: 2, name: 'Calle 17 x Carrera 27', coords: [1.215345, -77.280432], state: 'green', vehicles: 18, sensors: 3, cameras: 1, online: true, temp: '17°C', wait: '12s', density: 38, ref: 'Gimnasio Muscle Mania' },
+  { id: 3, name: 'Calle 18 x Carrera 27', coords: [1.214512, -77.279890], state: 'yellow', vehicles: 28, sensors: 3, cameras: 1, online: true, temp: '19°C', wait: '25s', density: 65, ref: 'Catedral Sagrado Corazón' },
 ]
 
 const getMarkerIcon = (density) => {
@@ -33,8 +30,8 @@ export default function Intersecciones({ onMount }) {
       <div className="card animate-in delay-1" style={{ marginBottom: 28 }}>
         <div className="card-header">
           <div>
-            <div className="card-title">Mapa de Intersecciones — San Juan de Pasto</div>
-            <div className="card-subtitle">Red semafórica IoT piloto — 6 intersecciones monitoreadas</div>
+            <div className="card-title">Mapa de Intersecciones — Corredor Carrera 27 (Pasto)</div>
+            <div className="card-subtitle">Red semafórica IoT piloto — 3 intersecciones monitoreadas (9 semáforos)</div>
           </div>
           <div style={{ display: 'flex', gap: 12, fontSize: 11 }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--accent-green)' }}>
@@ -49,7 +46,7 @@ export default function Intersecciones({ onMount }) {
           </div>
         </div>
         <div className="map-container" style={{ height: 400, borderRadius: 'var(--radius)', overflow: 'hidden', border: '1px solid var(--border-glass)' }}>
-          <MapContainer center={[1.2136, -77.2811]} zoom={15} style={{ height: '100%', width: '100%' }}>
+          <MapContainer center={[1.215345, -77.280432]} zoom={17} style={{ height: '100%', width: '100%' }}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
@@ -88,7 +85,7 @@ export default function Intersecciones({ onMount }) {
               <div style={{ flex: 1 }}>
                 <h4 style={{ fontSize: 13, fontWeight: 600, marginBottom: 4 }}>{inter.name}</h4>
                 <p style={{ fontSize: 11, color: 'var(--text-muted)' }}>
-                  {inter.coords[0]}° N, {Math.abs(inter.coords[1])}° W
+                  Ref: {inter.ref}
                 </p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 6 }}>
                   {inter.online

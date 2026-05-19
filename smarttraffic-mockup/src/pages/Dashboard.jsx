@@ -15,20 +15,20 @@ const flowData = [
 ]
 
 const congestionData = [
-  { name: 'Av. Panamericana', nivel: 87 }, { name: 'Cra 27', nivel: 72 },
-  { name: 'Calle 18', nivel: 65 }, { name: 'Cra 33', nivel: 45 },
-  { name: 'Calle 22', nivel: 38 }, { name: 'Av. Colombia', nivel: 55 },
+  { name: 'Calle 16', nivel: 87 }, { name: 'Calle 17', nivel: 72 },
+  { name: 'Calle 18', nivel: 65 }, { name: 'Cra 27 Norte', nivel: 45 },
+  { name: 'Cra 27 Sur', nivel: 38 }, { name: 'Parque Rumipamba', nivel: 55 },
 ]
 
 const intersections = [
-  { id: 1, name: 'Av. Panamericana x Calle 18', state: 'red', vehicles: 42, wait: '45s', status: 'congested' },
-  { id: 2, name: 'Cra 27 x Calle 22', state: 'green', vehicles: 18, wait: '12s', status: 'active' },
-  { id: 3, name: 'Cra 33 x Av. Colombia', state: 'yellow', vehicles: 28, wait: '25s', status: 'moderate' },
+  { id: 1, name: 'Calle 16 x Carrera 27', state: 'red', vehicles: 42, wait: '45s', status: 'congested' },
+  { id: 2, name: 'Calle 17 x Carrera 27', state: 'green', vehicles: 18, wait: '12s', status: 'active' },
+  { id: 3, name: 'Calle 18 x Carrera 27', state: 'yellow', vehicles: 28, wait: '25s', status: 'moderate' },
 ]
 
 const alerts = [
-  { type: 'critical', msg: 'Sensor #04 desconectado — Cra 27', time: 'Hace 3 min' },
-  { type: 'warning', msg: 'Alta congestión detectada — Av. Panamericana', time: 'Hace 12 min' },
+  { type: 'critical', msg: 'Sensor #04 desconectado — Calle 16 x Cra 27', time: 'Hace 3 min' },
+  { type: 'warning', msg: 'Alta congestión detectada — Carrera 27', time: 'Hace 12 min' },
   { type: 'info', msg: 'Vehículo de emergencia priorizado — Ruta Norte', time: 'Hace 28 min' },
 ]
 
@@ -72,7 +72,7 @@ export default function Dashboard({ onMount }) {
         </div>
         <div className="stat-card blue animate-in delay-2">
           <div className="stat-icon"><MapPin size={20} /></div>
-          <div className="stat-value">14</div>
+          <div className="stat-value">3</div>
           <div className="stat-label">Intersecciones activas</div>
           <div className="stat-change positive"><TrendingUp size={12} /> 100%</div>
         </div>

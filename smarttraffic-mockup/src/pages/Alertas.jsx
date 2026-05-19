@@ -2,14 +2,14 @@ import { useEffect } from 'react'
 import { AlertTriangle, CheckCircle, XCircle, Info, Shield, Wifi, Camera, Cpu, Siren } from 'lucide-react'
 
 const alertsData = [
-  { id: 1, type: 'critical', icon: <XCircle size={16} />, title: 'Sensor #04 Desconectado', desc: 'Sensor de lazo inductivo sin respuesta en Av. Boyacá x Calle 16. Última conexión hace 18 minutos.', time: 'Hace 3 min', location: 'Intersección #5' },
-  { id: 2, type: 'critical', icon: <Camera size={16} />, title: 'Cámara #02 — Señal Perdida', desc: 'La cámara de visión artificial de la Cra 27 x Calle 22 reporta pérdida total de señal de video.', time: 'Hace 8 min', location: 'Intersección #2' },
-  { id: 3, type: 'warning', icon: <AlertTriangle size={16} />, title: 'Alta Congestión Detectada', desc: 'El corredor Av. Panamericana supera el 85% de densidad vehicular. El algoritmo adaptativo ha extendido el ciclo verde.', time: 'Hace 12 min', location: 'Av. Panamericana' },
+  { id: 1, type: 'critical', icon: <XCircle size={16} />, title: 'Sensor #04 Desconectado', desc: 'Sensor de lazo inductivo sin respuesta en Calle 16 x Carrera 27. Última conexión hace 18 minutos.', time: 'Hace 3 min', location: 'Intersección #1' },
+  { id: 2, type: 'critical', icon: <Camera size={16} />, title: 'Cámara #02 — Señal Perdida', desc: 'La cámara de visión artificial de la Calle 17 x Carrera 27 reporta pérdida total de señal de video.', time: 'Hace 8 min', location: 'Intersección #2' },
+  { id: 3, type: 'warning', icon: <AlertTriangle size={16} />, title: 'Alta Congestión Detectada', desc: 'El corredor Carrera 27 supera el 85% de densidad vehicular. El algoritmo adaptativo ha extendido el ciclo verde.', time: 'Hace 12 min', location: 'Carrera 27' },
   { id: 4, type: 'warning', icon: <Cpu size={16} />, title: 'CPU del Edge Server al 89%', desc: 'El computador de borde en la intersección #1 muestra carga elevada. Riesgo de latencia en decisiones.', time: 'Hace 25 min', location: 'Intersección #1' },
-  { id: 5, type: 'info', icon: <Siren size={16} />, title: 'Vehículo de Emergencia Priorizado', desc: 'Ambulancia detectada en corredor norte. Se activó "ola verde" temporal por 90 segundos en 3 semáforos.', time: 'Hace 28 min', location: 'Ruta Norte' },
+  { id: 5, type: 'info', icon: <Siren size={16} />, title: 'Vehículo de Emergencia Priorizado', desc: 'Ambulancia detectada en corredor norte. Se activó "ola verde" temporal por 90 segundos en 3 semáforos.', time: 'Hace 28 min', location: 'Carrera 27' },
   { id: 6, type: 'info', icon: <Shield size={16} />, title: 'Cifrado de Video Verificado', desc: 'Todas las transmisiones de cámaras cumplen protocolo TLS 1.3. Datos anonimizados según Ley 1581/2012.', time: 'Hace 45 min', location: 'Sistema Global' },
   { id: 7, type: 'info', icon: <Wifi size={16} />, title: 'Red 4G Estable', desc: 'Los módems de comunicación celular reportan latencia promedio de 22ms en todas las intersecciones activas.', time: 'Hace 1h', location: 'Red IoT' },
-  { id: 8, type: 'warning', icon: <AlertTriangle size={16} />, title: 'Temperatura Elevada — Gabinete #3', desc: 'El gabinete IP66 de la intersección #3 registra 38°C. Límite recomendado: 40°C.', time: 'Hace 1h 15min', location: 'Intersección #3' },
+  { id: 8, type: 'warning', icon: <AlertTriangle size={16} />, title: 'Temperatura Elevada — Gabinete #3', desc: 'El gabinete IP66 de la intersección #3 (Calle 18) registra 38°C. Límite recomendado: 40°C.', time: 'Hace 1h 15min', location: 'Intersección #3' },
 ]
 
 const stats = [
