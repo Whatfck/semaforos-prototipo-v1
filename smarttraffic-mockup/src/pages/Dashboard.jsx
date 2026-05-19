@@ -147,8 +147,12 @@ export default function Dashboard({ onMount }) {
           </div>
           {intersections.map((inter, i) => (
             <div key={inter.id} className="intersection-card" style={{ marginBottom: i < intersections.length - 1 ? 12 : 0 }}>
-              <TrafficLight state={lightStates[i]} />
-              <div className="intersection-info">
+              <div style={{ display: 'flex', gap: 6 }}>
+                <TrafficLight state={lightStates[(i + 0) % 3]} />
+                <TrafficLight state={lightStates[(i + 1) % 3]} />
+                <TrafficLight state={lightStates[(i + 2) % 3]} />
+              </div>
+              <div className="intersection-info" style={{ marginLeft: 14 }}>
                 <h4>{inter.name}</h4>
                 <p>Intersección piloto #{inter.id}</p>
                 <div className="intersection-stats">

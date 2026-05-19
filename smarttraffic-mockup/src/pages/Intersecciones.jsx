@@ -23,6 +23,14 @@ const getMarkerIcon = (density) => {
 export default function Intersecciones({ onMount }) {
   useEffect(() => { onMount?.() }, [])
   const [selected, setSelected] = useState(0)
+  const [phase, setPhase] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPhase(p => (p + 1) % 3)
+    }, 2500)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <div className="page">
@@ -81,7 +89,11 @@ export default function Intersecciones({ onMount }) {
             onClick={() => setSelected(i)}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 16 }}>
-              <TrafficLight state={inter.state} />
+              <div style={{ display: 'flex', gap: 8 }}>
+                <TrafficLight state={(phase + i) % 3 === 0 ? 'green' : 'red'} />
+                <TrafficLight state={(phase + i) % 3 === 1 ? 'green' : 'red'} />
+                <TrafficLight state={(phase + i) % 3 === 2 ? 'green' : 'red'} />
+              </div>
               <div style={{ flex: 1 }}>
                 <h4 style={{ fontSize: 13, fontWeight: 600, marginBottom: 4 }}>{inter.name}</h4>
                 <p style={{ fontSize: 11, color: 'var(--text-muted)' }}>
